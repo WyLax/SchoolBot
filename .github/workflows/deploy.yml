@@ -26,7 +26,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /root/bots/WyPIC
+            cd /root/bots/SchoolBot
             git fetch --all
             git reset --hard origin/main
-            systemctl restart wypic
+            systemctl restart schoolbot
