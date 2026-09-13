@@ -1,0 +1,9 @@
+aiogram
+apscheduler
+python-dotenv
+pandas
+aiohttp
+PyMuPDF
+Pillow
+playwright
+aiosqlite
