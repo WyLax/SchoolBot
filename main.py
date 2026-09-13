@@ -9,8 +9,6 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 from aiogram.types import LabeledPrice
 
-from collections import defaultdict
-
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from func_base_work import base_work
