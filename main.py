@@ -562,7 +562,7 @@ async def main():
     await init_days()
 
     scheduler = AsyncIOScheduler()
-    scheduler.add_job(check_updates, "interval", seconds=30)
+    scheduler.add_job(check_updates, "interval", seconds=60*45)
     scheduler.add_job(save_menu, "interval", seconds=60*30)
     scheduler.start()
 
