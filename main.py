@@ -309,7 +309,7 @@ async def feedback_command(message: types.Message, state: FSMContext):
     await state.set_state(Feedback.waiting)
 
 
-@dp.message(F.text == "💬 Отзыв")
+@dp.message(F.text == "Отзыв")
 async def feedback_button(message: types.Message, state: FSMContext):
     if message.chat.type != "private":
         await message.reply("К сожалению оставить отзыв в группе нельзя")
@@ -504,15 +504,15 @@ parse_mode="HTML")
 @dp.message()
 async def button_handler(message: types.Message) -> None:
 
-    if message.text == "📋 Меню столовой на ближайший день":
+    if message.text == "Меню столовой на ближайший день":
         await message.reply_photo(photo=await menu(), caption=f"Меню известное на данный момент")
 
 
-    elif message.text == "🗓 Расписание на любой день":
+    elif message.text == "Расписание на любой день":
         await message.reply("Выбери день недели", reply_markup=button(["понедельник", "вторник", "среда", "четверг", "пятница"], 1))
 
 
-    elif message.text == "⚙ Настройки":
+    elif message.text == "Настройки":
         if str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id='{message.chat.id}'"))[3:-4] == 'вкл':
             item1 = 'авто отправка  🔔'
         else:
@@ -520,7 +520,7 @@ async def button_handler(message: types.Message) -> None:
         await message.reply("Настройки бота:", reply_markup=button([item1], 1))
 
 
-    elif message.text == "👤 Профиль":
+    elif message.text == "Профиль":
         await message.reply(f"""
 <tg-emoji emoji-id="5231012545799666522">🔍</tg-emoji> <b>Твой профиль</b>
 <b>──────────────────────</b>
