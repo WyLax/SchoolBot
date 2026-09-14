@@ -177,7 +177,7 @@ async def table_day_command_handler(message: types.Message):
 @dp.message(Command("info"))
 async def info_command_handler(message: types.Message):
     await message.reply(
-"""<tg-emoji emoji-id="5422439311196834318">💡</tg-emoji> <b>Информация:<b>
+"""<tg-emoji emoji-id="5422439311196834318">💡</tg-emoji> <b>Информация:</b>
 <b>──────────────────────</b>
 Создатель бота - @wylaxx
 Тестировщик бота - @None\_less
