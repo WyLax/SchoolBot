@@ -8,7 +8,7 @@ from PIL import Image
 from playwright.async_api import async_playwright
 
 
-async def save_screen(way, url, timeout=10):
+async def save_screen(way, url, timeout=40):
     filename = (f"photo_schedule/{way}.png")
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
