@@ -197,7 +197,7 @@ async def info_command_handler(message: types.Message):
 async def profile_command_handler(message: types.Message):
     if message.chat.type == "private":
         await message.reply(f"""
-🌟 *Твой профиль:*
+![🌟](tg://emoji?id=5920433463428650761) *Твой профиль:*
 *──────────────────────*
 🪪 *ID:* `{message.chat.id}`
 👤 *Имя:* `{message.chat.first_name}`
@@ -205,7 +205,7 @@ async def profile_command_handler(message: types.Message):
 🔔 *Авто отправка:* `{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}`
 *──────────────────────*
 _версия бота v1.2 beta_
-""", parse_mode="Markdown")
+""", parse_mode="MarkdownV2")
 
     else:
         await message.reply(f"""
