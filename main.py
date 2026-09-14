@@ -243,19 +243,19 @@ async def updmenu_command_handler(message: types.Message):
 @dp.message(Command("upd_table"))
 async def updtable_command_handler(message: types.Message):
     
-    await save_screen('monday', await day_link('monday')
+    await save_screen('monday', await day_link('monday'))
     await message.reply('пн обновлено')
 
-    await save_screen('tuesday', await day_link('tuesday')
+    await save_screen('tuesday', await day_link('tuesday'))
     await message.answer('вт обновлено')
 
-    await save_screen('wednesday', await day_link('wednesday')
+    await save_screen('wednesday', await day_link('wednesday'))
     await message.answer('ср обновлено')
 
-    await save_screen('thursday', await day_link('thursday')
+    await save_screen('thursday', await day_link('thursday'))
     await message.answer('чт обновлено')
 
-    await save_screen('friday', await day_link('friday')
+    await save_screen('friday', await day_link('friday'))
     await message.answer('пт обновлено')
 
 
