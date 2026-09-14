@@ -231,10 +231,32 @@ async def menu_command_handler(message: types.Message):
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
 
 
-@dp.message(Command("updmenu"))
-async def menu_command_handler(message: types.Message):
+@dp.message(Command("upd_menu"))
+async def updmenu_command_handler(message: types.Message):
     await save_menu()
     await message.reply('меню обновлено')
+
+
+### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
+
+
+@dp.message(Command("upd_table"))
+async def updtable_command_handler(message: types.Message):
+    
+    save_screen('monday', await day_link('monday')
+    await message.reply('пн обновлено')
+
+    save_screen('tuesday', await day_link('tuesday')
+    await message.answer('вт обновлено')
+
+    save_screen('wednesday', await day_link('wednesday')
+    await message.answer('ср обновлено')
+
+    save_screen('thursday', await day_link('thursday')
+    await message.answer('чт обновлено')
+
+    save_screen('friday', await day_link('friday')
+    await message.answer('пт обновлено')
 
 
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
