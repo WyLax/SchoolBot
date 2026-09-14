@@ -156,7 +156,7 @@ async def send_welcome(message: types.Message):
 @dp.message(Command('options'))
 async def options_command_handler(message: types.Message):
     if str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id='{message.chat.id}'"))[3:-4] == 'вкл':
-        item1 = 'авто отправка  🔔', icon_custom_emoji_id=
+        item1 = 'авто отправка  🔔'
     else:
         item1 = 'авто отправка  🔕'
 
