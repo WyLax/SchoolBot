@@ -457,7 +457,12 @@ async def supports(message: types.Message):
 
         buttons.append(
             InlineKeyboardButton(
-                text=f"{stars}", icon_custom_emoji_id="5920433463428650761",
+                text=f"{stars}", icon_custom_emoji_id={
+            10: "5920433463428650761",
+            25: "5920433463428650761",
+            50: "5920108570627544286",
+            100: "5920281855378068765"
+        }[stars],
                 url=invoice_link
             )
         )
