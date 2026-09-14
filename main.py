@@ -156,7 +156,7 @@ async def send_welcome(message: types.Message):
 @dp.message(Command('options'))
 async def options_command_handler(message: types.Message):
     if str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id='{message.chat.id}'"))[3:-4] == 'вкл':
-        item1 = 'авто отправка  🔔'
+        item1 = 'авто отправка  🔔', icon_custom_emoji_id=
     else:
         item1 = 'авто отправка  🔕'
 
@@ -177,15 +177,15 @@ async def table_day_command_handler(message: types.Message):
 @dp.message(Command("info"))
 async def info_command_handler(message: types.Message):
     await message.reply(
-"""🌟 *Информация:*
-*──────────────────────*
+"""<tg-emoji emoji-id="5422439311196834318">💡</tg-emoji> <b>Информация:<b>
+<b>──────────────────────</b>
 Создатель бота - @wylaxx
 Тестировщик бота - @None\_less
-*──────────────────────*
-Вся информация о расписаниях берётся с [официального сайта школы](https://www.22vp.ru)
-*──────────────────────*
-Пишите свои предложения и пожелания, а также сообщайте об ошибках в отзывах, либо напрямую @wylaxx""",
-        parse_mode="Markdown",
+<b>──────────────────────</b>
+<tg-emoji emoji-id="5282843764451195532">🖥</tg-emoji> Вся информация о расписаниях берётся с <a href="https://www.22vp.ru">официального сайта школы</a>
+<b>──────────────────────</b>
+<tg-emoji emoji-id="5443038326535759644">💬</tg-emoji> Пишите свои предложения и пожелания, а также сообщайте об ошибках в отзывах, либо напрямую @wylaxx""",
+        parse_mode="HTML",
         disable_web_page_preview=True
     )
 
@@ -197,42 +197,24 @@ async def info_command_handler(message: types.Message):
 async def profile_command_handler(message: types.Message):
     if message.chat.type == "private":
         await message.reply(f"""
-🌟 *Твой профиль:*
-*──────────────────────*
-🪪 *ID:* `{message.chat.id}`
-👤 *Имя:* `{message.chat.first_name}`
-*──────────────────────*
-🔔 *Авто отправка:* `{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}`
-*──────────────────────*
+<tg-emoji emoji-id="5231012545799666522">🔍</tg-emoji> <b>Твой профиль</b>
+<b>──────────────────────</b>
+<tg-emoji emoji-id="5210956306952758910">👀</tg-emoji> <b>ID:</b> <code>{message.chat.id}</code>
+    <b>Имя:</b> <code>{message.chat.first_name}</code>
+<b>──────────────────────</b>
+<tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
+<b>──────────────────────</b>
 _версия бота v1.2 beta_
-""", parse_mode="Markdown")
+""", parse_mode="HTML")
 
     else:
         await message.reply(f"""
-🌟 *Профиль группы:*
-*──────────────────────*
-🪪 *ID:* `{message.chat.id}`
-👥 *Группа:* `{message.chat.title}`
-*──────────────────────*
-🔔 *Авто отправка:* `{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}`
-*──────────────────────*
-_версия бота v1.2 beta_
-""", parse_mode="Markdown")
-
-
-### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
-
-
-@dp.message(Command("profile1"))
-async def profile1_command_handler(message: types.Message):
-    if message.chat.type == "private":
-        await message.reply(f"""
-🌟 <b>Твой профиль:</b>
+<tg-emoji emoji-id="5231012545799666522">🔍</tg-emoji> <b>Профиль группы</b>
 <b>──────────────────────</b>
-🪪 <b>ID:</b> <code>{message.chat.id}</code>
-👤 <b>Имя:</b> <code>{message.chat.first_name}</code>
+<tg-emoji emoji-id="5210956306952758910">👀</tg-emoji> <b>ID:</b> <code>{message.chat.id}</code>
+<b>Группа:</b> <code>{message.chat.title}</code>
 <b>──────────────────────</b>
-🔔 <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
+<tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
 _версия бота v1.2 beta_
 """, parse_mode="HTML")
@@ -462,7 +444,7 @@ async def supports(message: types.Message):
     for stars in [10, 25, 50, 100]:
         invoice_link = await bot.create_invoice_link(
             title="Поддержка проекта",
-            description=f"Поддержка проекта на {stars} ⭐️",
+            description=f"Поддержка проекта на {stars}",
             payload=f"support_{stars}",
             currency="XTR",
             prices=[
@@ -493,14 +475,14 @@ async def supports(message: types.Message):
     )
 
     await message.reply(f"""
-💙 *Поддержать проект*
-*──────────────────────*
-Если бот оказался полезен, вы можете поддержать его развитие звёздами либо же через СБП. Любая поддержка очень ценна и помогает поддерживать работу бота
+<tg-emoji emoji-id="5267102644886853973">❤️</tg-emoji> <b>Поддержать проект<b>
+<b>──────────────────────<b>
+Если бот вам понравился, вы можете поддержать его развитие звёздами либо же через СБП. Любая поддержка очень ценна и помогает поддерживать работу бота
 
 Выберите сумму поддержки:
 """,
 reply_markup=keyboard,
-parse_mode="Markdown")
+parse_mode="HTML")
 
 
 @dp.pre_checkout_query()
@@ -510,9 +492,10 @@ async def pre_checkout(pre_checkout_query: types.PreCheckoutQuery):
 
 @dp.message(lambda message: message.successful_payment is not None)
 async def successful_payment(message: types.Message):
-    await message.answer(
-        "❤️ Спасибо огромное за поддержку!\n"
-    )
+    await message.answer("""
+<tg-emoji emoji-id="5192879906295397710">💝</tg-emoji> Огромное спасибо за поддержку!
+""",
+parse_mode="HTML")
 
 
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
