@@ -200,7 +200,7 @@ async def profile_command_handler(message: types.Message):
 <tg-emoji emoji-id="5231012545799666522">🔍</tg-emoji> <b>Твой профиль</b>
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5271604874419647061">🔗</tg-emoji> <b>ID:</b> <code>{message.chat.id}</code>
-      <b>Имя:</b> <code>{message.chat.first_name}</code>
+<tg-emoji emoji-id="5267010315974875579">⬜️</tg-emoji> <b>Имя:</b> <code>{message.chat.first_name}</code>
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
@@ -212,9 +212,9 @@ _версия бота v1.2 beta_
 <tg-emoji emoji-id="5231012545799666522">🔍</tg-emoji> <b>Профиль группы</b>
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5271604874419647061">🔗</tg-emoji> <b>ID:</b> <code>{message.chat.id}</code>
-<b>Группа:</b> <code>{message.chat.title}</code>
+<tg-emoji emoji-id="5267010315974875579">⬜️</tg-emoji> <b>Группа:</b> <code>{message.chat.title}</code>
 <b>──────────────────────</b>
-      <tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
+<tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
 _версия бота v1.2 beta_
 """, parse_mode="HTML")
@@ -525,7 +525,7 @@ async def button_handler(message: types.Message) -> None:
 <tg-emoji emoji-id="5231012545799666522">🔍</tg-emoji> <b>Твой профиль</b>
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5271604874419647061">🔗</tg-emoji> <b>ID:</b> <code>{message.chat.id}</code>
-      <b>Имя:</b> <code>{message.chat.first_name}</code>
+<tg-emoji emoji-id="5267010315974875579">⬜️</tg-emoji> <b>Имя:</b> <code>{message.chat.first_name}</code>
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
