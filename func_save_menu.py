@@ -8,8 +8,11 @@ MENU_URL = "https://22-vp.ru/food22/egednevnoe_menu1-11.pdf"
 
 
 async def save_menu():
+
+    proxy_url = "http://45.132.252.25:49156"
+
     async with aiohttp.ClientSession() as session:
-        async with session.get(MENU_URL) as response:
+        async with session.get(MENU_URL, proxy=proxy_url) as response:
             pdf_data = await response.read()
 
 
