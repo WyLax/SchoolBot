@@ -197,7 +197,7 @@ async def info_command_handler(message: types.Message):
 async def profile_command_handler(message: types.Message):
     if message.chat.type == "private":
         await message.reply(f"""
-![🌟](tg://emoji?id=5920433463428650761) *Твой профиль:*
+🌟 *Твой профиль:*
 *──────────────────────*
 🪪 *ID:* `{message.chat.id}`
 👤 *Имя:* `{message.chat.first_name}`
@@ -205,7 +205,7 @@ async def profile_command_handler(message: types.Message):
 🔔 *Авто отправка:* `{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}`
 *──────────────────────*
 _версия бота v1.2 beta_
-""", parse_mode="MarkdownV2")
+""", parse_mode="Markdown")
 
     else:
         await message.reply(f"""
@@ -218,6 +218,24 @@ _версия бота v1.2 beta_
 *──────────────────────*
 _версия бота v1.2 beta_
 """, parse_mode="Markdown")
+
+
+### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
+
+
+@dp.message(Command("profile1"))
+async def profile1_command_handler(message: types.Message):
+    if message.chat.type == "private":
+        await message.reply(f"""
+🌟 <b>Твой профиль:</b>
+<b>──────────────────────</b>
+🪪 <b>ID:</b> <code>{message.chat.id}</code>
+👤 <b>Имя:</b> <code>{message.chat.first_name}</code>
+<b>──────────────────────</b>
+🔔 <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
+<b>──────────────────────</b>
+_версия бота v1.2 beta_
+""", parse_mode="HTML")
 
 
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
