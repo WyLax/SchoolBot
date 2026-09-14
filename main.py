@@ -124,10 +124,10 @@ async def send_welcome(message: types.Message):
     if message.chat.type == "private":
 
         button1 = KeyboardButton(text="Меню столовой на ближайший день", icon_custom_emoji_id="5197269100878907942")
-        button2 = KeyboardButton(text="🗓 Расписание на любой день")
-        button3 = KeyboardButton(text="⚙ Настройки")
-        button4 = KeyboardButton(text="👤 Профиль")
-        button5 = KeyboardButton(text="💬 Отзыв")
+        button2 = KeyboardButton(text="Расписание на любой день", icon_custom_emoji_id="5413879192267805083")
+        button3 = KeyboardButton(text="Настройки", icon_custom_emoji_id="5341715473882955310")
+        button4 = KeyboardButton(text="Профиль", icon_custom_emoji_id="5271604874419647061")
+        button5 = KeyboardButton(text="Отзыв", icon_custom_emoji_id="5443038326535759644")
 
         keyboard = ReplyKeyboardMarkup(keyboard=[
             [button1],
