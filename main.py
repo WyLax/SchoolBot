@@ -123,7 +123,7 @@ async def send_welcome(message: types.Message):
 
     if message.chat.type == "private":
 
-        button1 = KeyboardButton(text="📋 Меню столовой на ближайший день")
+        button1 = KeyboardButton(text="Меню столовой на ближайший день", icon_custom_emoji_id="5197269100878907942")
         button2 = KeyboardButton(text="🗓 Расписание на любой день")
         button3 = KeyboardButton(text="⚙ Настройки")
         button4 = KeyboardButton(text="👤 Профиль")
