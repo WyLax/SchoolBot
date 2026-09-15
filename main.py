@@ -320,12 +320,12 @@ async def stats_command_handler(message: types.Message):
 
 
     await message.reply(f"""
-<tg-emoji emoji-id="5231200819986047254">📊</tg-emoji> <b>статистика<b>
-<b>──────────────────────<b>
-<b>Всего:<b> <code>{bot_users}</code>
-<b>За день:<b> <code>{activity_1day}</code>
-<b>За неделю:<b> <code>{activity_7day}</code>
-<b>За месяц:<b> <code>{activity_30day}</code>
+<tg-emoji emoji-id="5231200819986047254">📊</tg-emoji> <b>статистика</b>
+<b>──────────────────────</b>
+<b>Всего:</b> <code>{bot_users}</code>
+<b>За день:</b> <code>{activity_1day}</code>
+<b>За неделю:</b> <code>{activity_7day}</code>
+<b>За месяц:</b> <code>{activity_30day}</code>
 """, parse_mode="HTML")
 
 
@@ -574,7 +574,6 @@ async def button_handler(message: types.Message) -> None:
             item2 = '5240241223632954241'
         await message.reply("""
 <tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>
-<b>──────────────────────</b>
 """, parse_mode="HTML", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="авто отправка", callback_data=item1, icon_custom_emoji_id=item2)]
