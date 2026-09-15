@@ -320,7 +320,7 @@ async def stats_command_handler(message: types.Message):
 
 
     await message.reply(f"""
-<tg-emoji emoji-id="5231200819986047254">📊</tg-emoji> <b>статистика</b>
+<tg-emoji emoji-id="5231200819986047254">📊</tg-emoji> <b>Статистика</b>
 <b>──────────────────────</b>
 <b>Всего:</b> <code>{bot_users}</code>
 <b>За день:</b> <code>{activity_1day}</code>
@@ -456,7 +456,7 @@ async def copy_message(message: types.Message, state: FSMContext):
 
         for user_id in all_users_id:
             try:
-                await message.bot.forward_messages(
+                await message.bot.copy_messages(
                     chat_id=user_id,
                     from_chat_id=message.chat.id,
                     message_ids=ids
@@ -468,7 +468,7 @@ async def copy_message(message: types.Message, state: FSMContext):
     else:
         for user_id in all_users_id:
             try:
-                await message.forward(chat_id=user_id)
+                await message.copy_to(chat_id=user_id)
                 done += 1
             except:
                 not_done += 1
@@ -530,7 +530,7 @@ async def supports(message: types.Message):
     await message.reply(f"""
 <tg-emoji emoji-id="5267102644886853973">❤️</tg-emoji> <b>Поддержать проект</b>
 <b>──────────────────────</b>
-Если бот вам понравился, вы можете поддержать его развитие звёздами либо же через СБП. Любая поддержка очень ценна и помогает поддерживать работу бота
+Если бот вам понравился, вы можете поддержать его развитие звёздами или деньгами. Любая поддержка очень ценна и помогает поддерживать работу бота
 
 Выберите сумму поддержки:
 """,
