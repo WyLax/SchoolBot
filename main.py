@@ -185,7 +185,7 @@ async def info_command_handler(message: types.Message):
 """<tg-emoji emoji-id="5422439311196834318">💡</tg-emoji> <b>Информация</b>
 <b>──────────────────────</b>
 Создатель бота - @wylaxx
-Тестировщик бота - @None\_less
+Тестировщик бота - @None_less
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5282843764451195532">🖥</tg-emoji> Вся информация о расписаниях берётся с <a href="https://www.22vp.ru">официального сайта школы</a>
 <b>──────────────────────</b>
@@ -209,7 +209,7 @@ async def profile_command_handler(message: types.Message):
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
-_версия бота v1.2 beta_
+<em>версия бота v1.2 beta</em>
 """, parse_mode="HTML")
 
     else:
@@ -221,7 +221,7 @@ _версия бота v1.2 beta_
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
-_версия бота v1.2 beta_
+<em>версия бота v1.2 beta</em>
 """, parse_mode="HTML")
 
 
