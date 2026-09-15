@@ -42,6 +42,13 @@ dp = Dispatcher()
 
 class UserMiddleware(BaseMiddleware):
     async def __call__(self, handler, event, data):
+
+        if not await base_work(school_base, f"SELECT * FROM user_data WHERE user_id = '{event.chat.id}'"):
+            if event.chat.type == "private":
+                await bot.send_message(6116644204, f"Новый пользователь `{event.chat.id}` `{event.chat.first_name}` `{event.chat.username}`", parse_mode="Markdown")
+            else:
+                await bot.send_message(6116644204, f"Новая группа `{event.chat.id}` `{event.chat.title}` `{event.chat.username}`", parse_mode="Markdown")
+        
         if not event.text or not event.text.startswith("/start"):
             if event.chat.type == "private":
                 await base_work(school_base,f"INSERT OR IGNORE INTO user_data (user_id, first_name, username) VALUES ('{event.chat.id}', '{event.chat.first_name}', '{event.chat.username}')")
@@ -49,12 +56,6 @@ class UserMiddleware(BaseMiddleware):
                 await base_work(school_base,f"INSERT OR IGNORE INTO user_data (user_id, first_name, username) VALUES ('{event.chat.id}', '{event.chat.title}', '{event.chat.username}')")
 
         await base_work(school_base, f"UPDATE user_data SET last_activity = CURRENT_TIMESTAMP WHERE user_id = '{event.chat.id}'")
-
-        if not await base_work(school_base, f"SELECT * FROM user_data WHERE user_id = '{event.chat.id}'"):
-            if event.chat.type == "private":
-                await bot.send_message(6116644204, f"Новый пользователь `{event.chat.id}` `{event.chat.first_name}` `{event.chat.username}`", parse_mode="Markdown")
-            else:
-                await bot.send_message(6116644204, f"Новая группа `{event.chat.id}` `{event.chat.title}` `{event.chat.username}`", parse_mode="Markdown")
 
 
         return await handler(event, data)
