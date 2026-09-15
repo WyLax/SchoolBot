@@ -199,7 +199,10 @@ async def options_command_handler(message: types.Message):
     else:
         item1 = 'авто отправка  🔕'
         item2 = '5240241223632954241'
-    await message.reply("Настройки бота:", reply_markup=InlineKeyboardMarkup(
+    await message.reply("""
+<tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>
+<b>──────────────────────</b>
+""", parse_mode="HTML", reply_markup=InlineKeyboardMarkup(
         inline_keyboard=[
             [InlineKeyboardButton(text="авто отправка", callback_data=item1, icon_custom_emoji_id=item2)]
         ]
@@ -570,7 +573,10 @@ async def button_handler(message: types.Message) -> None:
         else:
             item1 = 'авто отправка  🔕'
             item2 = '5240241223632954241'
-        await message.reply("Настройки бота:", reply_markup=InlineKeyboardMarkup(
+        await message.reply("""
+<tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>
+<b>──────────────────────</b>
+""", parse_mode="HTML", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="авто отправка", callback_data=item1, icon_custom_emoji_id=item2)]
             ]
