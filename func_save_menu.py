@@ -10,6 +10,8 @@ MENU_URL_5_11 = "https://22-vp.ru/food22/egednevnoe_menu5-11.PDF"
 
 async def save_menu():
 
+async def save_menu():
+
     proxy_url = "http://45.132.252.25:49156"
 
     async with aiohttp.ClientSession() as session:
