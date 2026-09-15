@@ -187,8 +187,6 @@ async def send_welcome(message: types.Message):
 """, parse_mode="HTML")
         if not await base_work(school_base, f"SELECT * FROM user_data WHERE user_id = '{message.chat.id}'"):
             await base_work(school_base, f"INSERT INTO user_data (user_id, first_name, username) VALUES ('{message.chat.id}', 'группа: {message.chat.title}', '{message.chat.username}')")
-            await message.answer(f'Кстати, у меня наконец-то появился собственный сервер, поэтому теперь бот сможет работать 24/7. Спасибо, что пользуетесь ботом! <tg-emoji emoji-id="5310126401737732242">😘</tg-emoji>', parse_mode="HTML")
-            await bot.send_message(6116644204, f"Новая группа `{message.chat.id}` `{message.chat.title}` `{message.chat.username}`", parse_mode="Markdown")
 
 
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
