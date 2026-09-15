@@ -160,7 +160,6 @@ async def send_welcome(message: types.Message):
 """, reply_markup=keyboard, parse_mode="HTML")
             
             await message.answer(f'Кстати, у меня наконец-то появился собственный сервер, поэтому теперь бот сможет работать 24/7. Спасибо, что пользуешься ботом! <tg-emoji emoji-id="5310126401737732242">😘</tg-emoji>', parse_mode="HTML")
-            await bot.send_message(6116644204, f"Новый пользователь `{message.chat.id}` `{message.chat.first_name}` `{message.chat.username}`", parse_mode="Markdown")
             
         else:
             await message.reply(f"""
