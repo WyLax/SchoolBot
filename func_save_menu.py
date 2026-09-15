@@ -4,7 +4,8 @@ import pymupdf
 from PIL import Image
 
 
-MENU_URL = "https://22-vp.ru/food22/egednevnoe_menu1-11.pdf"
+MENU_URL_1_11 = "https://22-vp.ru/food22/egednevnoe_menu1-11.pdf"
+MENU_URL_5_11 = "https://22-vp.ru/food22/egednevnoe_menu1-11.pdf"
 
 
 async def save_menu():
@@ -12,8 +13,12 @@ async def save_menu():
     proxy_url = "http://45.132.252.25:49156"
 
     async with aiohttp.ClientSession() as session:
-        async with session.get(MENU_URL, proxy=proxy_url) as response:
-            pdf_data = await response.read()
+        async with session.get(MENU_URL_1_11, proxy=proxy_url) as response:
+            if response.status == 200:
+                pdf_data = await response.read()
+        else:
+            async with session.get(MENU_URL_5_11, proxy=proxy_url) as response:
+                pdf_data = await response.read()
 
 
     pdf = pymupdf.open(stream=pdf_data, filetype="pdf")
