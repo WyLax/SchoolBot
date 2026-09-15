@@ -157,10 +157,15 @@ async def send_welcome(message: types.Message):
 async def options_command_handler(message: types.Message):
     if str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id='{message.chat.id}'"))[3:-4] == 'вкл':
         item1 = 'авто отправка  🔔'
+        item2 ='5424818078833715060'
     else:
         item1 = 'авто отправка  🔕'
-
-    await message.reply("Настройки бота:", reply_markup=button([item1], 1))
+        item2 = '5240241223632954241'
+    await message.reply("Настройки бота:", reply_markup=InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="авто отправка", callback_data=item1, icon_custom_emoji_id=item2)]
+        ]
+    ))
 
 
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
@@ -523,9 +528,15 @@ async def button_handler(message: types.Message) -> None:
     elif message.text == "Настройки":
         if str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id='{message.chat.id}'"))[3:-4] == 'вкл':
             item1 = 'авто отправка  🔔'
+            item2 ='5424818078833715060'
         else:
             item1 = 'авто отправка  🔕'
-        await message.reply("Настройки бота:", reply_markup=button([item1], 1))
+            item2 = '5240241223632954241'
+        await message.reply("Настройки бота:", reply_markup=InlineKeyboardMarkup(
+            inline_keyboard=[
+                [InlineKeyboardButton(text="авто отправка", callback_data=item1, icon_custom_emoji_id=item2)]
+            ]
+        ))
 
 
     elif message.text == "Профиль":
@@ -574,7 +585,7 @@ async def callback_button_handler(callback: CallbackQuery):
             text="Настройки бота:",
             reply_markup=InlineKeyboardMarkup(
                 inline_keyboard=[
-                    [InlineKeyboardButton(text="авто отправка", callback_data="авто отправка  🔕", icon_custom_emoji_id="5424818078833715060")]
+                    [InlineKeyboardButton(text="авто отправка", callback_data="авто отправка  🔕", icon_custom_emoji_id="5240241223632954241")]
                 ]
             )
         )
@@ -591,7 +602,7 @@ async def callback_button_handler(callback: CallbackQuery):
             text="Настройки бота:",
             reply_markup=InlineKeyboardMarkup(
                 inline_keyboard=[
-                    [InlineKeyboardButton(text="авто отправка", callback_data="авто отправка  🔔", icon_custom_emoji_id="5240241223632954241")]
+                    [InlineKeyboardButton(text="авто отправка", callback_data="авто отправка  🔔", icon_custom_emoji_id="5424818078833715060")]
                 ]
             )
         )
