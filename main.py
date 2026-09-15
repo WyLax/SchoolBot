@@ -152,7 +152,7 @@ async def send_welcome(message: types.Message):
 /feedback - оставить отзыв
 """, reply_markup=keyboard, parse_mode="HTML")
             
-            await message.answer(f"Кстати, у меня наконец-то появился собственный сервер, поэтому теперь бот сможет работать 24/7. Спасибо, что пользуешься ботом! <tg-emoji emoji-id="5310126401737732242">😘</tg-emoji>", parse_mode="HTML")
+            await message.answer(f'Кстати, у меня наконец-то появился собственный сервер, поэтому теперь бот сможет работать 24/7. Спасибо, что пользуешься ботом! <tg-emoji emoji-id="5310126401737732242">😘</tg-emoji>', parse_mode="HTML")
         else:
             await message.reply(f"""
 Приветик, {message.chat.first_name}! <tg-emoji emoji-id="5352784961814405440">😎</tg-emoji>
@@ -185,7 +185,7 @@ async def send_welcome(message: types.Message):
 """, parse_mode="HTML")
         if not await base_work(school_base, f"SELECT * FROM user_data WHERE user_id = '{message.chat.id}'"):
             await base_work(school_base, f"INSERT INTO user_data (user_id, first_name, username) VALUES ('{message.chat.id}', 'группа: {message.chat.title}', '{message.chat.username}')")
-            await message.answer(f"Кстати, у меня наконец-то появился собственный сервер, поэтому теперь бот сможет работать 24/7. Спасибо, что пользуетесь ботом! <tg-emoji emoji-id="5310126401737732242">😘</tg-emoji>", parse_mode="HTML")
+            await message.answer(f'Кстати, у меня наконец-то появился собственный сервер, поэтому теперь бот сможет работать 24/7. Спасибо, что пользуетесь ботом! <tg-emoji emoji-id="5310126401737732242">😘</tg-emoji>', parse_mode="HTML")
 
 
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
