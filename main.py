@@ -177,7 +177,7 @@ async def table_day_command_handler(message: types.Message):
 @dp.message(Command("info"))
 async def info_command_handler(message: types.Message):
     await message.reply(
-"""<tg-emoji emoji-id="5422439311196834318">💡</tg-emoji> <b>Информация:</b>
+"""<tg-emoji emoji-id="5422439311196834318">💡</tg-emoji> <b>Информация</b>
 <b>──────────────────────</b>
 Создатель бота - @wylaxx
 Тестировщик бота - @None\_less
@@ -572,7 +572,11 @@ async def callback_button_handler(callback: CallbackQuery):
             chat_id=callback.message.chat.id,
             message_id=callback.message.message_id,
             text="Настройки бота:",
-            reply_markup=button(['авто отправка  🔕'], 1)
+            reply_markup=InlineKeyboardMarkup(
+                inline_keyboard=[
+                    [InlineKeyboardButton(text="авто отправка", callback_data="авто отправка  🔕", icon_custom_emoji_id="5424818078833715060")]
+                ]
+            )
         )
         return
 
@@ -585,7 +589,11 @@ async def callback_button_handler(callback: CallbackQuery):
             chat_id=callback.message.chat.id,
             message_id=callback.message.message_id,
             text="Настройки бота:",
-            reply_markup=button(['авто отправка  🔔'], 1)
+            reply_markup=InlineKeyboardMarkup(
+                inline_keyboard=[
+                    [InlineKeyboardButton(text="авто отправка", callback_data="авто отправка  🔔", icon_custom_emoji_id="5240241223632954241")]
+                ]
+            )
         )
         return
 
