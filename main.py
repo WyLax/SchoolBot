@@ -467,10 +467,18 @@ async def supports(message: types.Message):
             )
         )
 
+    other_payment = InlineKeyboardButton(
+        text="Деньгами",
+        url="https://pay.cloudtips.ru/p/42b40038",
+        icon_custom_emoji_id="5445353829304387411",
+        style="primary"
+    )
+
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [buttons[0], buttons[1]],
-            [buttons[2], buttons[3]]
+            [buttons[2], buttons[3]],
+            [other_payment]
         ]
     )
 
