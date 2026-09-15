@@ -137,17 +137,55 @@ async def send_welcome(message: types.Message):
 
         if not await base_work(school_base, f"SELECT * FROM user_data WHERE user_id = '{message.chat.id}'"):
             await base_work(school_base, f"INSERT INTO user_data (user_id, first_name, username) VALUES ('{message.chat.id}', '{message.chat.first_name}', '{message.chat.username}')")
-            await message.reply(f"Приветик, {message.chat.first_name}, я школьный бот помощник!\n\nМои возможности:\n/start - перезапустить бота\n/info - посмотреть информацию о создателе и о боте\n/table_day - посмотреть расписание на любой день недели\n/menu - посмотреть меню в столовой\n/options - дополнительные настройки\n/profile - посмотреть свой профиль\n/support - поддержать проект\n/feedback - оставить отзыв",reply_markup=keyboard)
-            await message.answer(f"Кстати, у меня наконец-то появился собственный сервер, поэтому теперь бот сможет работать 24/7. Спасибо, что пользуешься ботом! ❤️")
-        else:
-            await message.reply(f"Приветик, {message.chat.first_name}!\n\nМои возможности:\n/start - перезапустить бота\n/info - посмотреть информацию о создателе и о боте\n/table_day - посмотреть расписание на любой день недели\n/menu - посмотреть меню в столовой\n/options - дополнительные настройки\n/profile - посмотреть свой профиль\n/support - поддержать проект\n/feedback - оставить отзыв",reply_markup=keyboard)
+            await message.reply(f"""
+Приветик, {message.chat.first_name}, я школьный бот помощник! <tg-emoji emoji-id="5368493177634301681">😊</tg-emoji>
 
+<b>Мои возможности</b>
+<b>──────────────────────</b>
+/start - перезапустить бота
+/info - информация о создателе и боте
+/table_day - расписание на любой день
+/menu - меню столовой
+/options - дополнительные настройки
+/profile - твой профиль
+/support - поддержать проект
+/feedback - оставить отзыв
+""", reply_markup=keyboard, parse_mode="HTML")
+            
+            await message.answer(f"Кстати, у меня наконец-то появился собственный сервер, поэтому теперь бот сможет работать 24/7. Спасибо, что пользуешься ботом! <tg-emoji emoji-id="5310126401737732242">😘</tg-emoji>", parse_mode="HTML")
+        else:
+            await message.reply(f"""
+Приветик, {message.chat.first_name}! <tg-emoji emoji-id="5352784961814405440">😎</tg-emoji>
+
+<b>Мои возможности</b>
+<b>──────────────────────</b>
+/start - перезапустить бота
+/info - информация о создателе и боте
+/table_day - расписание на любой день
+/menu - меню столовой
+/options - дополнительные настройки
+/profile - твой профиль
+/support - поддержать проект
+/feedback - оставить отзыв
+""", reply_markup=keyboard, parse_mode="HTML")
 
     else:
-        await message.reply(f"Рад всех видеть в {message.chat.title}, я школьный бот помощник!\n\nМои возможности:\n/start - перезапустить бота\n/info - посмотреть информацию о создателе и о боте\n/table_day - посмотреть расписание на любой день недели\n/menu - посмотреть меню в столовой\n/options - дополнительные настройки\n/profile - посмотреть профиль группы\n/support - поддержать проект")
+        await message.reply(f"""
+Рад всех видеть в {message.chat.title}, я школьный бот помощник! <tg-emoji emoji-id="5368493177634301681">😊</tg-emoji>
+
+<b>Мои возможности</b>
+<b>──────────────────────</b>
+/start - перезапустить бота
+/info - информация о создателе и боте
+/table_day - расписание на любой день
+/menu - меню столовой
+/options - дополнительные настройки
+/profile - профиль группы
+/support - поддержать проект
+""", parse_mode="HTML")
         if not await base_work(school_base, f"SELECT * FROM user_data WHERE user_id = '{message.chat.id}'"):
             await base_work(school_base, f"INSERT INTO user_data (user_id, first_name, username) VALUES ('{message.chat.id}', 'группа: {message.chat.title}', '{message.chat.username}')")
-            await message.answer(f"Кстати, у меня наконец-то появился собственный сервер, поэтому теперь бот сможет работать 24/7. Спасибо, что пользуетесь ботом! ❤️")
+            await message.answer(f"Кстати, у меня наконец-то появился собственный сервер, поэтому теперь бот сможет работать 24/7. Спасибо, что пользуетесь ботом! <tg-emoji emoji-id="5310126401737732242">😘</tg-emoji>", parse_mode="HTML")
 
 
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
