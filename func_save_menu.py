@@ -20,7 +20,7 @@ async def save_menu():
                 pdf_data = await response.read()
             else:
                 async with session.get(MENU_URL_5_11, proxy=proxy_url) as response:
-                    pdf_data = await response.read()
+                pdf_data = await response.read()
 
 
     pdf = pymupdf.open(stream=pdf_data, filetype="pdf")
