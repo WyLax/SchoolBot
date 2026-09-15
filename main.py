@@ -157,7 +157,7 @@ async def send_welcome(message: types.Message):
             await message.reply(f"""
 Приветик, {message.chat.first_name}! <tg-emoji emoji-id="5352784961814405440">😎</tg-emoji>
 
-<b>Мои возможности</b>
+<tg-emoji emoji-id="5325547803936572038">✨</tg-emoji> <b>Мои возможности</b>
 <b>──────────────────────</b>
 /start - перезапустить бота
 /info - информация о создателе и боте
@@ -173,7 +173,7 @@ async def send_welcome(message: types.Message):
         await message.reply(f"""
 Рад всех видеть в {message.chat.title}, я школьный бот помощник! <tg-emoji emoji-id="5368493177634301681">😊</tg-emoji>
 
-<b>Мои возможности</b>
+<tg-emoji emoji-id="5325547803936572038">✨</tg-emoji> <b>Мои возможности</b>
 <b>──────────────────────</b>
 /start - перезапустить бота
 /info - информация о создателе и боте
@@ -528,7 +528,7 @@ async def supports(message: types.Message):
     )
 
     await message.reply(f"""
-<tg-emoji emoji-id="5377435419803668072">❤️</tg-emoji> <b>Поддержать проект</b>
+<tg-emoji emoji-id="5267102644886853973">❤️</tg-emoji> <b>Поддержать проект</b>
 <b>──────────────────────</b>
 Если бот вам понравился, вы можете поддержать его развитие звёздами или деньгами. Любая поддержка очень ценна и помогает поддерживать работу бота <tg-emoji emoji-id="5433940662384875553">🥰</tg-emoji>
 
@@ -546,7 +546,7 @@ async def pre_checkout(pre_checkout_query: types.PreCheckoutQuery):
 @dp.message(lambda message: message.successful_payment is not None)
 async def successful_payment(message: types.Message):
     await message.answer("""
-<tg-emoji emoji-id="5192879906295397710">💝</tg-emoji> Огромное спасибо за поддержку!
+<tg-emoji emoji-id="5377435419803668072">❤️</tg-emoji> Огромное спасибо за поддержку!
 """,
 parse_mode="HTML")
 
