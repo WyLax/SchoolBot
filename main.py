@@ -50,6 +50,12 @@ class UserMiddleware(BaseMiddleware):
 
         await base_work(school_base, f"UPDATE user_data SET last_activity = CURRENT_TIMESTAMP WHERE user_id = '{event.chat.id}'")
 
+        if not await base_work(school_base, f"SELECT * FROM user_data WHERE user_id = '{event.chat.id}'"):
+            if event.chat.type == "private":
+                await bot.send_message(6116644204, f"Новый пользователь `{event.chat.id}` `{event.chat.first_name}` `{event.chat.username}`", parse_mode="Markdown")
+            else:
+                await bot.send_message(6116644204, f"Новая группа `{event.chat.id}` `{event.chat.title}` `{event.chat.username}`", parse_mode="Markdown")
+
 
         return await handler(event, data)
 
@@ -625,7 +631,8 @@ async def callback_button_handler(callback: CallbackQuery):
         await bot.edit_message_text(
             chat_id=callback.message.chat.id,
             message_id=callback.message.message_id,
-            text="Настройки бота:",
+            text='<tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>',
+            parse_mode="HTML",
             reply_markup=InlineKeyboardMarkup(
                 inline_keyboard=[
                     [InlineKeyboardButton(text="авто отправка", callback_data="авто отправка  🔕", icon_custom_emoji_id="5240241223632954241")]
@@ -642,7 +649,8 @@ async def callback_button_handler(callback: CallbackQuery):
         await bot.edit_message_text(
             chat_id=callback.message.chat.id,
             message_id=callback.message.message_id,
-            text="Настройки бота:",
+            text='<tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>',
+            parse_mode="HTML",
             reply_markup=InlineKeyboardMarkup(
                 inline_keyboard=[
                     [InlineKeyboardButton(text="авто отправка", callback_data="авто отправка  🔔", icon_custom_emoji_id="5424818078833715060")]
