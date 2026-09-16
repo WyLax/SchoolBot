@@ -49,7 +49,7 @@ async def save_screen(way, url, timeout=40):
             if black_pixel_found:
                 break
 
-        img_cropped = img.crop((left-1, upper-1, right, lower))
+        img_cropped = img.crop((left, upper, right-1, lower-1))
         img_cropped.save(filename)
         await browser.close()
 
