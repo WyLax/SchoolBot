@@ -657,7 +657,11 @@ async def callback_button_handler(callback: CallbackQuery):
         await bot.edit_message_text(
             chat_id=callback.message.chat.id,
             message_id=callback.message.message_id,
-            text='<tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>',
+            text="""
+<tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>
+<b>──────────────────────</b>
+Обновления расписания - бот переодиески проверяет расписание и уведомит тебя, если оно обновится
+            """,
             parse_mode="HTML",
             reply_markup=InlineKeyboardMarkup(
                 inline_keyboard=[
