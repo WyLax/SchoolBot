@@ -153,7 +153,7 @@ async def send_welcome(message: types.Message):
 /info - информация о создателе и боте
 /table_day - расписание на любой день
 /menu - меню столовой
-/options - дополнительные настройки
+/options - настройки бота
 /profile - твой профиль
 /support - поддержать проект
 /feedback - оставить отзыв
@@ -171,7 +171,7 @@ async def send_welcome(message: types.Message):
 /info - информация о создателе и боте
 /table_day - расписание на любой день
 /menu - меню столовой
-/options - дополнительные настройки
+/options - настройки бота
 /profile - твой профиль
 /support - поддержать проект
 /feedback - оставить отзыв
@@ -187,7 +187,7 @@ async def send_welcome(message: types.Message):
 /info - информация о создателе и боте
 /table_day - расписание на любой день
 /menu - меню столовой
-/options - дополнительные настройки
+/options - настройки бота
 /profile - профиль группы
 /support - поддержать проект
 """, parse_mode="HTML")
@@ -201,16 +201,18 @@ async def send_welcome(message: types.Message):
 @dp.message(Command('options'))
 async def options_command_handler(message: types.Message):
     if str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id='{message.chat.id}'"))[3:-4] == 'вкл':
-        item1 = 'авто отправка  🔔'
-        item2 ='5424818078833715060'
+        item1 = 'обновления расписания  🔔'
+        item2 ='5206607081334906820'
     else:
-        item1 = 'авто отправка  🔕'
-        item2 = '5240241223632954241'
+        item1 = 'обновления расписания  🔕'
+        item2 = '5210952531676504517'
     await message.reply("""
 <tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>
+<b>──────────────────────</b>
+Обновления расписания - бот переодиески проверяет расписание и уведомит тебя, если оно обновится
 """, parse_mode="HTML", reply_markup=InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="авто отправка", callback_data=item1, icon_custom_emoji_id=item2)]
+            [InlineKeyboardButton(text="обновления расписания", callback_data=item1, icon_custom_emoji_id=item2)]
         ]
     ))
 
@@ -254,7 +256,7 @@ async def profile_command_handler(message: types.Message):
 <tg-emoji emoji-id="5271604874419647061">🔗</tg-emoji> <b>ID:</b> <code>{message.chat.id}</code>
 <tg-emoji emoji-id="5267010315974875579">⬜️</tg-emoji> <b>Имя:</b> <code>{message.chat.first_name}</code>
 <b>──────────────────────</b>
-<tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
+<tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>обновления расписания:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
 <em>версия бота v1.2 beta</em>
 """, parse_mode="HTML")
@@ -266,7 +268,7 @@ async def profile_command_handler(message: types.Message):
 <tg-emoji emoji-id="5271604874419647061">🔗</tg-emoji> <b>ID:</b> <code>{message.chat.id}</code>
 <tg-emoji emoji-id="5267010315974875579">⬜️</tg-emoji> <b>Группа:</b> <code>{message.chat.title}</code>
 <b>──────────────────────</b>
-<tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
+<tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>обновления расписания:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
 <em>версия бота v1.2 beta</em>
 """, parse_mode="HTML")
@@ -574,16 +576,18 @@ async def button_handler(message: types.Message) -> None:
 
     elif message.text == "Настройки":
         if str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id='{message.chat.id}'"))[3:-4] == 'вкл':
-            item1 = 'авто отправка  🔔'
-            item2 ='5424818078833715060'
+            item1 = 'обновления расписания  🔔'
+            item2 ='5206607081334906820'
         else:
-            item1 = 'авто отправка  🔕'
-            item2 = '5240241223632954241'
+            item1 = 'обновления расписания  🔕'
+            item2 = '5210952531676504517'
         await message.reply("""
 <tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>
+<b>──────────────────────</b>
+Обновления расписания - бот переодиески проверяет расписание и уведомит тебя, если оно обновится
 """, parse_mode="HTML", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
-                [InlineKeyboardButton(text="авто отправка", callback_data=item1, icon_custom_emoji_id=item2)]
+                [InlineKeyboardButton(text="обновления расписания", callback_data=item1, icon_custom_emoji_id=item2)]
             ]
         ))
 
@@ -595,7 +599,7 @@ async def button_handler(message: types.Message) -> None:
 <tg-emoji emoji-id="5271604874419647061">🔗</tg-emoji> <b>ID:</b> <code>{message.chat.id}</code>
 <tg-emoji emoji-id="5267010315974875579">⬜️</tg-emoji> <b>Имя:</b> <code>{message.chat.first_name}</code>
 <b>──────────────────────</b>
-<tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>Авто отправка:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
+<tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>обновления расписания:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
 _версия бота v1.2 beta_
 """, parse_mode="HTML")
@@ -624,25 +628,29 @@ async def callback_button_handler(callback: CallbackQuery):
 
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
 
-    if callback.data == 'авто отправка  🔔':
+    if callback.data == 'обновления расписания  🔔':
 
         await base_work(school_base,
                         f"UPDATE user_data SET auto_send = 'выкл' WHERE user_id = '{callback.message.chat.id}'")
         await bot.edit_message_text(
             chat_id=callback.message.chat.id,
             message_id=callback.message.message_id,
-            text='<tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>',
+            text="""
+<tg-emoji emoji-id="5341715473882955310">⚙️</tg-emoji> <b>Настройки бота</b>
+<b>──────────────────────</b>
+Обновления расписания - бот переодиески проверяет расписание и уведомит тебя, если оно обновится
+            """,
             parse_mode="HTML",
             reply_markup=InlineKeyboardMarkup(
                 inline_keyboard=[
-                    [InlineKeyboardButton(text="авто отправка", callback_data="авто отправка  🔕", icon_custom_emoji_id="5240241223632954241")]
+                    [InlineKeyboardButton(text="обновления расписания", callback_data="обновления расписания  🔕", icon_custom_emoji_id="5210952531676504517")]
                 ]
             )
         )
         return
 
 
-    if callback.data == 'авто отправка  🔕':
+    if callback.data == 'обновления расписания  🔕':
 
         await base_work(school_base,
                         f"UPDATE user_data SET auto_send = 'вкл' WHERE user_id = '{callback.message.chat.id}'")
@@ -653,7 +661,7 @@ async def callback_button_handler(callback: CallbackQuery):
             parse_mode="HTML",
             reply_markup=InlineKeyboardMarkup(
                 inline_keyboard=[
-                    [InlineKeyboardButton(text="авто отправка", callback_data="авто отправка  🔔", icon_custom_emoji_id="5424818078833715060")]
+                    [InlineKeyboardButton(text="обновления расписания", callback_data="обновления расписания  🔔", icon_custom_emoji_id="5206607081334906820")]
                 ]
             )
         )
