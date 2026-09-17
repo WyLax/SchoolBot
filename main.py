@@ -351,11 +351,15 @@ async def feedback_command(message: types.Message, state: FSMContext):
         await message.reply("К сожалению оставить отзыв в группе нельзя")
         return
 
-    await message.reply(
-        "Просто напиши своё мнение о боте или что ты бы хотел в него добавить, только прошу не балуйся:",
+    await message.reply("""
+<tg-emoji emoji-id="5443038326535759644">💬</tg-emoji> <b>Оставить отзыв</b>
+<b>──────────────────────</b>
+Нашли ошибку, хотите что-то предложить или просто поделиться своим мнением? Напишите об этом в сообщении ниже, оно будет отправлено разработику
+Если же вам что-то не понравилось, пожалуйста, расскажите подробнее, так будет проще понять, что можно улучшить <tg-emoji emoji-id="5352807720846108275">🤔</tg-emoji>
+""", parse_mode="HTML",
         reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
-                [InlineKeyboardButton(text="Отмена", callback_data="cancel_feedback")]
+                [InlineKeyboardButton(text="Не оставлять отзыв", callback_data="cancel_feedback")]
             ]
         )
     )
@@ -369,11 +373,15 @@ async def feedback_button(message: types.Message, state: FSMContext):
         await message.reply("К сожалению оставить отзыв в группе нельзя")
         return
 
-    await message.reply(
-        "Просто напиши своё мнение о боте или что ты бы хотел в него добавить, только прошу не балуйся:",
+    await message.reply("""
+<tg-emoji emoji-id="5443038326535759644">💬</tg-emoji> <b>Оставить отзыв</b>
+<b>──────────────────────</b>
+Нашли ошибку, хотите что-то предложить или просто поделиться своим мнением? Напишите об этом в сообщении ниже, оно будет отправлено разработику
+Если же вам что-то не понравилось, пожалуйста, расскажите подробнее, так будет проще понять, что можно улучшить <tg-emoji emoji-id="5352807720846108275">🤔</tg-emoji>
+""", parse_mode="HTML",
         reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
-                [InlineKeyboardButton(text="Отмена", callback_data="cancel_feedback")]
+                [InlineKeyboardButton(text="Не оставлять отзыв", callback_data="cancel_feedback")]
             ]
         )
     )
@@ -392,7 +400,7 @@ async def cancel_feedback(callback: types.CallbackQuery, state: FSMContext):
 async def process_feedback(message: types.Message, state: FSMContext):
     await state.clear()
 
-    await message.reply("Спасибо за ваш отзыв!")
+    await message.reply('Спасибо за ваш отзыв! <tg-emoji emoji-id="5202032619042134528">🙃</tg-emoji>', parse_mode="HTML")
 
     await message.bot.send_message(
         -1002377171177,
