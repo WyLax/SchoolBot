@@ -423,7 +423,10 @@ class CopyMessage(StatesGroup):
 @dp.message(Command("sendall"))
 async def copy_command(message: types.Message, state: FSMContext):
     if message.chat.username not in admins:
-        await message.reply("Эту команду могут использовать только админы бота")
+        await message.reply("""
+Эту команду могут использовать только админы бота
+Но ты можешь написать @wylaxx если хочешь прорекламировать что-то или сделать важное объявление
+""")
         return
 
     await message.reply(
