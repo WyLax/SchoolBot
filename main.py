@@ -430,7 +430,7 @@ async def copy_command(message: types.Message, state: FSMContext):
         "Напишите ваше сообщение:",
         reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
-                [InlineKeyboardButton(text="Отмена", callback_data="cancel_sendall")]
+                [InlineKeyboardButton(text="Отменить рассылку", callback_data="cancel_sendall")]
             ]
         )
     )
@@ -485,7 +485,10 @@ async def copy_message(message: types.Message, state: FSMContext):
     else:
         for user_id in all_users_id:
             try:
-                await message.copy_to(chat_id=user_id)
+                await message.copy_to(
+                    chat_id=user_id,
+                    reply_markup=message.reply_markup
+                )
                 done += 1
             except:
                 not_done += 1
