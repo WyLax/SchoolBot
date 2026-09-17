@@ -258,7 +258,7 @@ async def profile_command_handler(message: types.Message):
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>обновления расписания:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
-<em>версия бота v1.2 beta</em>
+<em>версия бота v1.3 beta</em>
 """, parse_mode="HTML")
 
     else:
@@ -270,7 +270,7 @@ async def profile_command_handler(message: types.Message):
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>обновления расписания:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
-<em>версия бота v1.2 beta</em>
+<em>версия бота v1.3 beta</em>
 """, parse_mode="HTML")
 
 
@@ -609,7 +609,7 @@ async def button_handler(message: types.Message) -> None:
 <b>──────────────────────</b>
 <tg-emoji emoji-id="5424818078833715060">📣</tg-emoji> <b>обновления расписания:</b> <code>{str(await base_work(school_base, f"SELECT auto_send FROM user_data WHERE user_id = '{message.chat.id}'"))[3:-4]}</code>
 <b>──────────────────────</b>
-_версия бота v1.2 beta_
+<em>версия бота v1.3 beta</em>
 """, parse_mode="HTML")
 
 
