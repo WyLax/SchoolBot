@@ -322,10 +322,10 @@ async def stats_command_handler(message: types.Message):
         await message.reply("Эту команду могут использовать только админы бота")
         return
 
-    activity_1day = (await base_work(school_base, "SELECT COUNT(*) FROM user_data WHERE last_activity >= datetime('now', '-1 day')"))[0][0]
-    activity_7day = (await base_work(school_base, "SELECT COUNT(*) FROM user_data WHERE last_activity >= datetime('now', '-7 day')"))[0][0]
-    activity_30day = (await base_work(school_base, "SELECT COUNT(*) FROM user_data WHERE last_activity >= datetime('now', '-30 day')"))[0][0]
-    bot_users = (await base_work(school_base, "SELECT COUNT(*) FROM user_data"))[0][0]
+    activity_1day = (await base_work(school_base, "SELECT COUNT(*) FROM user_data WHERE user_id > 0 AND last_activity >= datetime('now', '-1 day')"))[0][0]
+    activity_7day = (await base_work(school_base, "SELECT COUNT(*) FROM user_data WHERE user_id > 0 AND last_activity >= datetime('now', '-7 day')"))[0][0]
+    activity_30day = (await base_work(school_base, "SELECT COUNT(*) FROM user_data WHERE user_id > 0 AND last_activity >= datetime('now', '-30 day')"))[0][0]
+    bot_users = (await base_work(school_base, "SELECT COUNT(*) FROM user_data WHERE user_id > 0"))[0][0]
 
 
     await message.reply(f"""
