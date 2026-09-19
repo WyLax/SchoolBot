@@ -17,12 +17,10 @@ async def save_menu():
         match = re.search(r'href=["\']([^"\']*11[^"\']*)["\']', html)
 
         if not match:
-            #нету ссылки
-            return
+            
+            return "нету ссылки"
 
         menu_url = urljoin("https://22-vp.ru/food", match.group(1))
-
-        #есть ссылка
 
         async with session.get(menu_url, proxy=proxy_url) as response:
             pdf_data = await response.read()
@@ -57,3 +55,5 @@ async def save_menu():
 
     result.thumbnail((1600, 1600))
     result.save("photo_menu/menu.jpg", format="JPEG", quality=80)
+
+    return f"фото сохранено {menu_url}"
