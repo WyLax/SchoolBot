@@ -17,12 +17,12 @@ async def save_menu():
         match = re.search(r'href=["\']([^"\']*11[^"\']*)["\']', html)
 
         if not match:
-            print("Ссылка на меню не найдена")
+            #нету ссылки
             return
 
         menu_url = urljoin("https://22-vp.ru/food", match.group(1))
 
-        print("Ссылка найдена:", menu_url)
+        #есть ссылка
 
         async with session.get(menu_url, proxy=proxy_url) as response:
             pdf_data = await response.read()
