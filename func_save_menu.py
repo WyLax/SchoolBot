@@ -5,7 +5,7 @@ from PIL import Image
 
 
 MENU_URL_1_11 = "https://22-vp.ru/food22/egednevnoe_menu1-11.pdf"
-MENU_URL_5_11 = "https://22-vp.ru/food22/egednevnoe_menu5-11.PDF"
+MENU_URL_5_11 = "https://22-vp.ru/food22/egednevnoe_menu5-11.pdf"
 
 
 async def save_menu():
