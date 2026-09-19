@@ -2,10 +2,8 @@ import io
 import aiohttp
 import pymupdf
 from PIL import Image
-
-
-MENU_URL_1_11 = "https://22-vp.ru/food22/egednevnoe_menu1-11.pdf"
-MENU_URL_5_11 = "https://22-vp.ru/food22/egednevnoe_menu5-11.pdf"
+import re
+from urllib.parse import urljoin
 
 
 async def save_menu():
@@ -13,13 +11,20 @@ async def save_menu():
     proxy_url = "http://45.132.252.25:49156"
 
     async with aiohttp.ClientSession() as session:
-        async with session.get(MENU_URL_1_11, proxy=proxy_url) as response:
-            if response.status == 200:
-                pdf_data = await response.read()
-            else:
-                async with session.get(MENU_URL_5_11, proxy=proxy_url) as response:
-                    pdf_data = await response.read()
-        async with session.get(MENU_URL_5_11, proxy=proxy_url) as response:
+        async with session.get("https://22-vp.ru/food", proxy=proxy_url) as response:
+            html = await response.text()
+
+        match = re.search(r'href=["\']([^"\']*11[^"\']*)["\']', html)
+
+        if not match:
+            print("Ссылка на меню не найдена")
+            return
+
+        menu_url = urljoin("https://22-vp.ru/food", match.group(1))
+
+        print("Ссылка найдена:", menu_url)
+
+        async with session.get(menu_url, proxy=proxy_url) as response:
             pdf_data = await response.read()
 
     pdf = pymupdf.open(stream=pdf_data, filetype="pdf")
@@ -50,7 +55,5 @@ async def save_menu():
         result.paste(image, (x, 0))
         x += image.width
 
-
-
-    result.thumbnail((1600,1600))
+    result.thumbnail((1600, 1600))
     result.save("photo_menu/menu.jpg", format="JPEG", quality=80)
