@@ -287,8 +287,8 @@ async def menu_command_handler(message: types.Message):
 
 @dp.message(Command("upd_menu"))
 async def updmenu_command_handler(message: types.Message):
-    await save_menu()
-    await message.reply('меню обновлено')
+    menu_url = await save_menu()
+    await message.reply(menu_url)
 
 
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
