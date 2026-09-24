@@ -8,6 +8,7 @@ from aiogram.types import ReplyKeyboardRemove
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 from aiogram.types import LabeledPrice
+from aiogram.exceptions import TelegramForbiddenError, TelegramBadRequest
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
@@ -336,6 +337,76 @@ async def stats_command_handler(message: types.Message):
 <b>За неделю:</b> <code>{activity_7day}</code>
 <b>За месяц:</b> <code>{activity_30day}</code>
 """, parse_mode="HTML")
+
+
+### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
+
+
+@dp.message(Command("check"))
+async def check_users(message: Message, bot: Bot):
+    # Берём всё после /check
+    text = message.text or ""
+    lines = text.splitlines()[1:]
+
+    # Оставляем только числовые ID
+    user_ids = []
+
+    for line in lines:
+        line = line.strip()
+
+        if line.isdigit():
+            user_ids.append(int(line))
+
+    if not user_ids:
+        await message.answer(
+            "Использование:\n\n"
+            "/check\n"
+            "12345678\n"
+            "12345679\n"
+            "12345680"
+        )
+        return
+
+    available = []
+    unavailable = []
+    unknown = []
+
+    for user_id in user_ids:
+        try:
+            result = await bot.send_chat_action(
+                chat_id=user_id,
+                action="typing"
+            )
+
+            if result:
+                available.append(user_id)
+
+        except TelegramForbiddenError:
+            unavailable.append(user_id)
+
+        except TelegramBadRequest:
+            unknown.append(user_id)
+
+        except Exception:
+            unknown.append(user_id)
+
+    result = "🔎 Результат проверки:\n\n"
+
+    if available:
+        result += "✅ Доступны:\n"
+        result += "\n".join(str(user_id) for user_id in available)
+        result += "\n\n"
+
+    if unavailable:
+        result += "❌ Недоступны:\n"
+        result += "\n".join(str(user_id) for user_id in unavailable)
+        result += "\n\n"
+
+    if unknown:
+        result += "⚠️ Не удалось проверить:\n"
+        result += "\n".join(str(user_id) for user_id in unknown)
+
+    await message.answer(result.strip())
 
 
 ### ▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱ ###
