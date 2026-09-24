@@ -8,7 +8,7 @@ from urllib.parse import urljoin
 
 async def save_menu():
 
-    proxy_url = "http://45.132.252.25:49156"
+    proxy_url = "http://95.163.67.60:8080"
 
     async with aiohttp.ClientSession() as session:
         async with session.get("https://22-vp.ru/food", proxy=proxy_url) as response:
